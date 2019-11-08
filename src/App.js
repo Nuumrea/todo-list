@@ -5,11 +5,17 @@ const App = () => {
   const [taskInput, setTaskInput] = useState("");
   const [tasks, setTasks] = useState([]);
   const newTasks = [...tasks];
-
   const handleSubmit = event => {
     event.preventDefault();
     newTasks.push({ name: taskInput });
     setTasks(newTasks);
+  };
+  const clearTask = index => {
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  };
+  const crossTask = () => {
+    alert("alert");
   };
 
   console.log("current tasks", tasks);
@@ -20,7 +26,23 @@ const App = () => {
         <h1>To-Do list</h1>
         <ul className="list">
           {tasks.map((tasks, index) => {
-            return <li key={index}>{tasks.name}</li>;
+            return (
+              <li
+                key={index}
+                onClick={() => {
+                  crossTask();
+                }}
+              >
+                <span
+                  onClick={() => {
+                    clearTask(index);
+                  }}
+                >
+                  ⨯
+                </span>{" "}
+                {tasks.name}
+              </li>
+            );
           })}
         </ul>
         <input
