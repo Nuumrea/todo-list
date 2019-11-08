@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.form h1 {
+  font-size: 3rem;
+  font-weight: lighter;
+  color: #606c76;
+}
+.list li {
+  width: auto;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  color: #606c76;
+  outline: none;
+  list-style-type: none;
+  line-height: 2rem;
+}
+.addBar {
+  width: auto;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: lighter;
+  padding-left: 1rem;
+  margin-top: 1rem;
+  color: #606c76;
+  outline: none;
+}
+
+.button {
+  width: 8rem;
+  height: 2rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: lighter;
+  border-radius: 4px;
+  background-color: white;
+  border-color: #606c76;
+  color: #606c76;
+  outline: none;
+}
