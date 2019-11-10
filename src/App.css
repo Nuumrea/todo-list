@@ -9,6 +9,10 @@
   font-weight: lighter;
   color: #606c76;
 }
+.list {
+  display: flex;
+  align-items: center;
+}
 .list li {
   width: auto;
   font-size: 1.5rem;
@@ -17,6 +21,10 @@
   outline: none;
   list-style-type: none;
   line-height: 2rem;
+}
+.cross {
+  margin-right: 1rem;
+  color: #606c76;
 }
 .addBar {
   width: auto;
@@ -40,4 +48,8 @@
   border-color: #606c76;
   color: #606c76;
   outline: none;
+}
+
+.crossTask {
+  text-decoration: line-through;
 }

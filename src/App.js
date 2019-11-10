@@ -4,44 +4,51 @@ import "./App.css";
 const App = () => {
   const [taskInput, setTaskInput] = useState("");
   const [tasks, setTasks] = useState([]);
+
   const newTasks = [...tasks];
+
   const handleSubmit = event => {
     event.preventDefault();
-    newTasks.push({ name: taskInput });
+    newTasks.push({ name: taskInput, taskDone: false });
     setTasks(newTasks);
   };
   const clearTask = index => {
     newTasks.splice(index, 1);
     setTasks(newTasks);
   };
-  const crossTask = () => {
-    alert("alert");
+  const crossTask = index => {
+    newTasks[index].taskDone = !newTasks[index].taskDone;
+    setTasks(newTasks);
   };
 
-  console.log("current tasks", tasks);
+  //console.log("current tasks", tasks);
 
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
         <h1>To-Do list</h1>
-        <ul className="list">
+        <ul style={{ paddingInlineStart: "inherit" }}>
           {tasks.map((tasks, index) => {
             return (
-              <li
-                key={index}
-                onClick={() => {
-                  crossTask();
-                }}
-              >
+              <div className="list">
                 <span
                   onClick={() => {
                     clearTask(index);
                   }}
+                  className="cross"
                 >
-                  ⨯
-                </span>{" "}
-                {tasks.name}
-              </li>
+                  ✖︎
+                </span>
+                <li
+                  className={tasks.taskDone === true ? "crossTask" : null}
+                  key={index}
+                  onClick={() => {
+                    crossTask(index);
+                  }}
+                >
+                  {tasks.name}
+                </li>
+              </div>
             );
           })}
         </ul>
