@@ -7,16 +7,17 @@ const App = () => {
 
   const newTasks = [...tasks];
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     newTasks.push({ name: taskInput, taskDone: false });
     setTasks(newTasks);
+    setTaskInput("");
   };
-  const clearTask = index => {
+  const clearTask = (index) => {
     newTasks.splice(index, 1);
     setTasks(newTasks);
   };
-  const crossTask = index => {
+  const crossTask = (index) => {
     newTasks[index].taskDone = !newTasks[index].taskDone;
     setTasks(newTasks);
   };
@@ -54,10 +55,10 @@ const App = () => {
         </ul>
         <input
           className="addBar"
-          placeholder="Title"
+          placeholder="Add task"
           type="text"
           value={taskInput}
-          onChange={event => {
+          onChange={(event) => {
             setTaskInput(event.target.value);
           }}
         />
